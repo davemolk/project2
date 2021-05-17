@@ -41,6 +41,9 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      codewars_username: {
+        type: DataTypes.STRING,
+      },
     },
     {
       sequelize,
