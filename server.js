@@ -6,6 +6,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("./config/ppConfig");
 const isLoggedIn = require("./middleware/isLoggedIn");
+const axios = require("axios");
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 
@@ -34,11 +35,22 @@ app.use((req, res, next) => {
   next();
 });
 
+// eventually get use template literal to enter the username based on sign-in
 app.get("/", (req, res) => {
-  res.render("index");
+  axios
+    .get(
+      "https://www.codewars.com/api/v1/users/davemolk/code-challenges/completed?"
+    )
+    .then((response) => {
+      // console.log("full response: ", response);
+      let myKatas = response.data.data;
+      console.log("here is response.data.data:", myKatas);
+      res.render("index", { myKatas });
+    });
 });
 
 app.use("/auth", require("./controllers/auth"));
+app.use("/katas", require("./controllers/katas"));
 
 app.get("/profile", isLoggedIn, (req, res) => {
   const { id, name, email } = req.user.get();
