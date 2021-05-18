@@ -6,13 +6,22 @@ module.exports = {
       "katas",
       [
         {
-          name: "Sum of Cubes",
+          name: "Largest pair sum in array",
+          cwId: "556196a6091a7e7f58000018",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
-          name: "Remove the time",
+          name: "shorter concat [reverse longer]",
+          cwId: "54557d61126a00423b000a45",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
-          name: "Multiply",
+          name: "Small enough? - Beginner",
+          cwId: "57cc981a58da9e302a000214",
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}

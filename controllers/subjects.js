@@ -14,4 +14,11 @@ router.get("/", async function (req, res) {
   res.render("subjects/index", { subject });
 });
 
+// create a kata
+router.post("/", function (req, res) {
+  db.kata.create(req.body).then((createdkata) => {
+    res.redirect("/katas");
+  });
+});
+
 module.exports = router;

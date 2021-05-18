@@ -4,18 +4,19 @@ const db = require("../models");
 const axios = require("axios");
 
 // list of all completed codewars katas
-router.get("/all", (req, res) => {
-  axios
-    .get(
-      "https://www.codewars.com/api/v1/users/davemolk/code-challenges/completed?"
-    )
-    .then((response) => {
-      // console.log("full response: ", response);
-      let myKatas = response.data.data;
-      console.log("here is response.data.data:", myKatas);
-      res.render("index", { myKatas });
-    });
-});
+// change myname to user
+// router.get("/all", (req, res) => {
+//   axios
+//     .get(
+//       "https://www.codewars.com/api/v1/users/davemolk/code-challenges/completed?"
+//     )
+//     .then((response) => {
+//       // console.log("full response: ", response);
+//       let myKatas = response.data.data;
+//       console.log("here is response.data.data:", myKatas);
+//       res.render("index", { myKatas });
+//     });
+// });
 
 // list of all katas in database
 router.get("/", (req, res) => {
