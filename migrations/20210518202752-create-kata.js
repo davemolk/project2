@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("katas", {
+    await queryInterface.createTable("kata", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,7 +11,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      cwId: {
+      cw: {
         type: Sequelize.STRING,
       },
       userId: {
@@ -28,6 +28,9 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("katas");
+    await queryInterface.dropTable("kata");
   },
 };
+
+// this populated as "kata" with the argument for queryInterface, which throws an error,
+// but changing it to "katas" also threw an error.

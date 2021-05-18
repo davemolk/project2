@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   kata.init(
     {
       name: DataTypes.STRING,
-      cwId: DataTypes.STRING,
+      cw: DataTypes.STRING,
       userId: DataTypes.INTEGER,
     },
     {
