@@ -43,14 +43,15 @@ app.get("/", (req, res) => {
     )
     .then((response) => {
       // console.log("full response: ", response);
-      let myKatas = response.data.data;
-      console.log("here is response.data.data:", myKatas);
-      res.render("index", { myKatas });
+      let myKatasFull = response.data.data;
+      console.log("here is response.data.data:", myKatasFull);
+      res.render("index", { myKatasFull });
     });
 });
 
 app.use("/auth", require("./controllers/auth"));
 app.use("/katas", require("./controllers/katas"));
+app.use("/subjects", require("./controllers/subjects"));
 
 app.get("/profile", isLoggedIn, (req, res) => {
   const { id, name, email } = req.user.get();
